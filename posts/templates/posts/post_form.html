@@ -1,0 +1,18 @@
+{% extends "posts/post_base.html" %}
+
+{% load bootstrap4 %}
+
+{% block post_content %}
+{% if not form.instance.pk %}
+<h2> Creat Post </h2>
+{% else %}
+<h2> Update Post </h2>
+{% endif %}
+<form method="POST"  id="postForm">
+	{% csrf_token %}
+	{% bootstrap_form form %}
+	{% buttons %}
+		<button type="submit" class="btn btn-primary btn-large">Post</button>
+	{% endbuttons %}
+</form>
+{% endblock %}
